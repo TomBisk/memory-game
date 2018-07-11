@@ -9,25 +9,54 @@ body {
 	height: 100%;
 }
 
-.cards {
+.deck {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	max-height: 610px;
-	max-width: 610px;
+	max-height: 600px;
+	max-width: 600px;
 	margin: auto;
 }
 
+.entire-card {
+	position: relative;
+	height: 120px;
+	width: 120px;
+	margin: 5px;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+	background-color: orange;  /* change this*/
+}
+
+/* Rule to rotate card */
+/* TODO > change to .card-rotate */
+.entire-card:hover {
+	transform: rotateY(180deg);
+}
+
 .card {
-	height: 150px;
-	width: 150px;
-	font-size: 2rem;
+	position: absolute;
+	height: 120px;
+	width: 120px;
+	font-size: 4rem;
 	background-color: #5f9ea0;
 	text-align: center;
 	vertical-align: middle;
+	backface-visibility: hidden;
 }
 
+.card-front {
+	margin: 0;
+	transform: rotateY(180deg);
+}
 
+.card-back {
+	background-color: #ffcccc;
+}
+
+.fas {
+	margin-top: 30px;
+}
 
 
 @media screen and (min-width: 640px) {
