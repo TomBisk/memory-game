@@ -9,6 +9,7 @@ body {
 	height: 100%;
 }
 
+/* Cards styles */
 .deck {
 	display: flex;
 	flex-direction: row;
@@ -30,10 +31,6 @@ body {
 
 /* Rule to rotate card */
 /* TODO > change to .card-rotate */
-.entire-card:hover {
-	transform: rotateY(180deg);
-}
-
 .card {
 	position: absolute;
 	height: 120px;
@@ -52,6 +49,10 @@ body {
 
 .card-back {
 	background-color: #ffcccc;
+}
+
+.card-rotate {
+	transform: rotateY(180deg);
 }
 
 .fas {
