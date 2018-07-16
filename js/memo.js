@@ -4,6 +4,31 @@ const cardsDeck = ["fa-at", "fa-at", "fa-beer", "fa-beer",
 				"fa-gem", "fa-gem", "fa-moon", "fa-moon",
 				"fa-paw", "fa-paw", "fa-skull", "fa-skull"];
 
+// List od all cards 
+let allCards = document.getElementsByClassName("entire-card");
+// Flag to check card status
+let clickFlag = true;
+
+/**
+* Function to handling card-rotate effect
+*/
+function rotateCard(e) {
+	// to store id of clicked card
+	let clickedCard = this.id;
+	// conditions to rotate card
+	if (clickFlag == true) {
+		document.getElementById(clickedCard).classList.add("card-rotate");
+		clickFlag = false;
+	} else {
+		document.getElementById(clickedCard).classList.remove("card-rotate");
+		clickFlag = true;
+	}
+}
+
+// to add event listener for all cards
+for (i = 0; i < allCards.length; i++) {
+	allCards.item(i).addEventListener("click", rotateCard);
+}
 
 /**
 * Function to random shuffle card-front icon's classes
@@ -30,7 +55,7 @@ function shuffle(cardsDeck) {
 */
 function dealCards() {
 	// create array of i elements which represents cards
-	const cardsList = document.getElementsByClassName('fas');
+	const cardsList = document.getElementsByClassName("fas");
 	// add icon-class for each i element
 	for (i = 0; i < cardsList.length; i++) {
 		let addIcon = cardsList[i];
@@ -43,7 +68,7 @@ function dealCards() {
 */
 function eraseCards() {
 	// create array of i elements which represents cards
-	const cardsList = document.getElementsByClassName('fas');
+	const cardsList = document.getElementsByClassName("fas");
 	// remove icon-class for each i element
 	for (i = 0; i < cardsList.length; i++) {
 		cardsList[i].classList.remove(...cardsDeck);
