@@ -37,3 +37,15 @@ function dealCards() {
 		addIcon.classList.add(cardsDeck[i]);
 	} 
 }
+
+/**
+* Function to remove icons(classes) from cards
+*/
+function eraseCards() {
+	// create array of i elements which represents cards
+	const cardsList = document.getElementsByClassName('fas');
+	// remove icon-class for each i element
+	for (i = 0; i < cardsList.length; i++) {
+		cardsList[i].classList.remove(...cardsDeck);
+	}
+}
