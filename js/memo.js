@@ -65,13 +65,11 @@ function coverCard(c1, c2) {
 	setTimeout(function(){
     document.getElementById(c1).classList.remove("card-rotate");
     document.getElementById(c2).classList.remove("card-rotate");
-  }, 500); //delay time depending on transition time of .entire-card
+  }, 500); //delay time depending of transition time of .entire-card
 }
 
-// List od all cards 
+// List of all cards 
 let allCards = document.getElementsByClassName("entire-card");
-
-
 
 // to add event listener for all cards
 for (i = 0; i < allCards.length; i++) {
