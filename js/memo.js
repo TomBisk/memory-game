@@ -68,12 +68,32 @@ function coverCard(c1, c2) {
   }, 500); //delay time depending of transition time of .entire-card
 }
 
+/**
+* Function to store uncovered cards
+*/
+storeArray = new Array(2); // array to store uncovered cards
+
+function storeCard(e) {
+	let clickedCard = this.id;
+	storeArray.unshift(clickedCard);
+	storeArray.pop();
+	//check condition if two diffrent card are uncovered
+	if (storeArray[0] !== storeArray[1] & storeArray[1] !== undefined) {
+		compareCards(storeArray[0], storeArray[1]); // call to function to compare
+		storeArray = new Array(2); // to erase array
+	} else {
+		
+	}
+}
+
+
 // List of all cards 
 let allCards = document.getElementsByClassName("entire-card");
 
 // to add event listener for all cards
 for (i = 0; i < allCards.length; i++) {
 	allCards.item(i).addEventListener("click", uncoverCard);
+	allCards.item(i).addEventListener("click", storeCard);
 }
 
 
