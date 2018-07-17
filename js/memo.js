@@ -75,7 +75,7 @@ let allCards = document.getElementsByClassName("entire-card");
 
 // to add event listener for all cards
 for (i = 0; i < allCards.length; i++) {
-	allCards.item(i).addEventListener("click", rotateCard);
+	allCards.item(i).addEventListener("click", uncoverCard);
 }
 
 
