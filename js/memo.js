@@ -4,32 +4,6 @@ const cardsDeck = ["fa-at", "fa-at", "fa-beer", "fa-beer",
 				"fa-gem", "fa-gem", "fa-moon", "fa-moon",
 				"fa-paw", "fa-paw", "fa-skull", "fa-skull"];
 
-// List od all cards 
-let allCards = document.getElementsByClassName("entire-card");
-// Flag to check card status
-let clickFlag = true;
-
-/**
-* Function to handling card-rotate effect
-*/
-function rotateCard(e) {
-	// to store id of clicked card
-	let clickedCard = this.id;
-	// conditions to rotate card
-	if (clickFlag == true) {
-		document.getElementById(clickedCard).classList.add("card-rotate");
-		clickFlag = false;
-	} else {
-		document.getElementById(clickedCard).classList.remove("card-rotate");
-		clickFlag = true;
-	}
-}
-
-// to add event listener for all cards
-for (i = 0; i < allCards.length; i++) {
-	allCards.item(i).addEventListener("click", rotateCard);
-}
-
 /**
 * Function to random shuffle card-front icon's classes
 * (based on function in starter code)
@@ -46,7 +20,6 @@ function shuffle(cardsDeck) {
 		cardsDeck[currentIndex] = cardsDeck[randomIndex];
 		cardsDeck[randomIndex] = temporaryValue;
 	} 
-	
 	return cardsDeck;
 }
 
@@ -74,3 +47,38 @@ function eraseCards() {
 		cardsList[i].classList.remove(...cardsDeck);
 	}
 }
+
+/**
+* Function to uncover clicked card effect
+*/
+function uncoverCard() {
+	// to store id of clicked card
+	let clickedCard = this.id;
+	document.getElementById(clickedCard).classList.add("card-rotate");
+}
+
+/** Function to cover uncovered cards when cards differ
+* @param {string} c1 - id of first uncovered card
+* @param {string} c2 - id of second uncovered card
+*/
+function coverCard(c1, c2) {
+	setTimeout(function(){
+    document.getElementById(c1).classList.remove("card-rotate");
+    document.getElementById(c2).classList.remove("card-rotate");
+  }, 500); //delay time depending on transition time of .entire-card
+}
+
+// List od all cards 
+let allCards = document.getElementsByClassName("entire-card");
+
+
+
+// to add event listener for all cards
+for (i = 0; i < allCards.length; i++) {
+	allCards.item(i).addEventListener("click", rotateCard);
+}
+
+
+
+
+
