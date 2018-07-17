@@ -86,6 +86,18 @@ function storeCard(e) {
 	}
 }
 
+/**
+* Function to compare two uncovered cards
+* @param {string} c1 - 
+* @param {string} c2 - 
+*/
+function compareCards(c1, c2) {
+	if (document.querySelector("#" + c1 + " i").className === document.querySelector("#" + c2 + " i").className) {
+		//TODO
+	} else {
+		coverCard(c1, c2);
+	}
+}
 
 // List of all cards 
 let allCards = document.getElementsByClassName("entire-card");
