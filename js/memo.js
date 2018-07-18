@@ -80,6 +80,7 @@ function storeCard(e) {
 	//check condition if two diffrent card are uncovered
 	if (storeArray[0] !== storeArray[1] & storeArray[1] !== undefined) {
 		toCountMoves(); // to add move to counter
+		rating(); // to set 'star rating'
 		compareCards(storeArray[0], storeArray[1]); // call to function to compare
 		storeArray = new Array(2); // to erase array
 	} else {
@@ -131,6 +132,36 @@ function resetCounter() {
 	document.getElementById("item-moves").innerHTML = moveCounter;
 }
 
+/**
+* Function to reflects the player's performance ("star rating")
+*/
+function rating() {
+	const star1 = document.getElementById("one-star");
+	const star2 = document.getElementById("two-star");
+	const star3 = document.getElementById("three-star");
+	// change stars style depending on number of moves
+	if (moveCounter == 15) {
+		star1.classList.remove("fas");
+		star1.classList.add("far");
+	} else if (moveCounter == 13){
+		star2.classList.remove("fas");
+		star2.classList.add("far");
+	} else if (moveCounter == 10) {
+		star3.classList.remove("fas");
+		star3.classList.add("far");
+	} else {}
+}
+
+/**
+* Function to reset "star rating" when game is restarted
+*/ 
+function resetRating() {
+	const rateItem = document.querySelectorAll("#item-rating i");
+	for (i =0; i < rateItem.length; i++) {
+    rateItem[i].classList.remove("far");
+    rateItem[i].classList.add("fas");
+  }
+}
 
 /**
 * Function to restart game. Function to cover all cards, 
@@ -142,6 +173,7 @@ function restart() {
 	for (i = 0; i < toRestart.length; i++) {
 		toRestart.item(i).classList.remove("card-rotate");
 	}
+	resetRating();
 	initGame();
 }
 
