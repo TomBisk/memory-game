@@ -25,8 +25,7 @@ body {
 	background-color: #85a5fd;
 }
 
-#item-raring .far, 
-#item-rating .fas { 
+#item-rating .far, #item-rating .fas { 
   	color: #ffa500;
 }
 
@@ -53,7 +52,7 @@ body {
 	height: 120px;
 	width: 120px;
 	margin: 5px;
-	transition: transform 0.6s;
+	transition: transform 0.45s;
 	transform-style: preserve-3d;
 /*	background-color: orange;   change this*/
 }
