@@ -9,6 +9,30 @@ body {
 	height: 100%;
 }
 
+/* Tools styles */
+.tools {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 600px;
+	margin: auto;
+}
+
+.score-item {
+	height: 30px;
+	width: 120px;
+	margin: 5px;
+	background-color: orange;
+}
+
+#restart > i {
+	padding: 2px 15px;
+	margin: 5px auto;
+}
+
+
+
+
 /* Cards styles */
 .deck {
 	display: flex;
