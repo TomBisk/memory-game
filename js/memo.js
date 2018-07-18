@@ -99,16 +99,21 @@ function compareCards(c1, c2) {
 	}
 }
 
-// List of all cards 
-let allCards = document.getElementsByClassName("entire-card");
 
+/**
+* Function to initialize game during first run and after reset
+*/
+function initGame() {
+// List of all cards 
+	let allCards = document.getElementsByClassName("entire-card");
 // to add event listener for all cards
-for (i = 0; i < allCards.length; i++) {
-	allCards.item(i).addEventListener("click", uncoverCard);
-	allCards.item(i).addEventListener("click", storeCard);
+	for (i = 0; i < allCards.length; i++) {
+		allCards.item(i).addEventListener("click", uncoverCard);
+		allCards.item(i).addEventListener("click", storeCard);
+	}
+	eraseCards(); //to erase icon classes from cards after restart
+	shuffle(cardsDeck); // to shuffle card-icons
+	dealCards(); // to assign icons to cards
 }
 
-
-
-
-
+initGame(); // Call to initialize the game
