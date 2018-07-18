@@ -28,7 +28,7 @@ function shuffle(cardsDeck) {
 */
 function dealCards() {
 	// create array of i elements which represents cards
-	const cardsList = document.getElementsByClassName("fas");
+	const cardsList = document.querySelectorAll(".entire-card .fas");
 	// add icon-class for each i element
 	for (i = 0; i < cardsList.length; i++) {
 		let addIcon = cardsList[i];
@@ -41,7 +41,7 @@ function dealCards() {
 */
 function eraseCards() {
 	// create array of i elements which represents cards
-	const cardsList = document.getElementsByClassName("fas");
+	const cardsList = document.querySelectorAll(".entire-card .fas");
 	// remove icon-class for each i element
 	for (i = 0; i < cardsList.length; i++) {
 		cardsList[i].classList.remove(...cardsDeck);
@@ -88,16 +88,30 @@ function storeCard(e) {
 
 /**
 * Function to compare two uncovered cards
-* @param {string} c1 - 
-* @param {string} c2 - 
+* @param {string} c1 - Id of first uncovered card
+* @param {string} c2 - Id of second uncovered card
 */
 function compareCards(c1, c2) {
 	if (document.querySelector("#" + c1 + " i").className === document.querySelector("#" + c2 + " i").className) {
-		//TODO
+		eventRemove(c1, c2); //to remove event listeners form matched cards
 	} else {
-		coverCard(c1, c2);
+		coverCard(c1, c2); //to cover unmatched cards
 	}
 }
+
+/**
+* Function to block uncovered and matched cards. 
+* Function removes event listeners from matched cards.
+* @param {string} c1 - Id of first matched card 
+* @param {string} c2 - Id of second matched card
+*/
+function eventRemove(c1, c2) {
+  document.getElementById(c1).removeEventListener("click", uncoverCard);
+  document.getElementById(c1).removeEventListener("click", storeCard);
+  document.getElementById(c2).removeEventListener("click", uncoverCard);
+  document.getElementById(c2).removeEventListener("click", storeCard);
+}
+
 
 /**
 * Function to restart game. Function to cover all cards, 
