@@ -79,6 +79,7 @@ function storeCard(e) {
 	storeArray.pop();
 	//check condition if two diffrent card are uncovered
 	if (storeArray[0] !== storeArray[1] & storeArray[1] !== undefined) {
+		toCountMoves(); // to add move to counter
 		compareCards(storeArray[0], storeArray[1]); // call to function to compare
 		storeArray = new Array(2); // to erase array
 	} else {
@@ -112,6 +113,24 @@ function eventRemove(c1, c2) {
   document.getElementById(c2).removeEventListener("click", storeCard);
 }
 
+/**
+* Function to count player's moves 
+*/
+function toCountMoves() {
+	moveCounter++;
+	document.getElementById("item-moves").innerHTML = moveCounter;
+}
+
+let moveCounter; // To store number of moves
+
+/**
+* Function to reser counter of moves
+*/
+function resetCounter() {
+	moveCounter = 0;
+	document.getElementById("item-moves").innerHTML = moveCounter;
+}
+
 
 /**
 * Function to restart game. Function to cover all cards, 
@@ -137,6 +156,7 @@ function initGame() {
 		allCards.item(i).addEventListener("click", uncoverCard);
 		allCards.item(i).addEventListener("click", storeCard);
 	}
+	resetCounter();
 	eraseCards(); //to erase icon classes from cards after restart
 	shuffle(cardsDeck); // to shuffle card-icons
 	dealCards(); // to assign icons to cards
