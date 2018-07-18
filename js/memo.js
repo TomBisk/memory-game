@@ -99,6 +99,18 @@ function compareCards(c1, c2) {
 	}
 }
 
+/**
+* Function to restart game. Function to cover all cards, 
+* reset all score-tools and initialize the new game.
+* Function is called by 'restart' button
+*/
+function restart() {
+	const toRestart = document.getElementsByClassName("entire-card");
+	for (i = 0; i < toRestart.length; i++) {
+		toRestart.item(i).classList.remove("card-rotate");
+	}
+	initGame();
+}
 
 /**
 * Function to initialize game during first run and after reset
@@ -115,5 +127,8 @@ function initGame() {
 	shuffle(cardsDeck); // to shuffle card-icons
 	dealCards(); // to assign icons to cards
 }
+
+// Set event listener to 'restart' button
+document.getElementById("restart").addEventListener("click", restart);
 
 initGame(); // Call to initialize the game
