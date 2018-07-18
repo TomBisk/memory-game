@@ -153,6 +153,34 @@ function rating() {
 }
 
 /**
+* Function of stopwatch
+*/
+function stopwatch() {
+	gameTime++;
+	itemTimer.innerText = gameTime /100;
+}
+
+const itemTimer = document.getElementById("item-timer"); // to get 'timer' html element
+let gameTime; //time of the game
+
+/**
+* Function to start stopwatch
+*/ 
+function toStartWatch() {
+	gameTime = 0; // to reset time of previous game 
+	interval = setInterval(stopwatch, 10); //call stopwatch() every 10 ms
+}
+
+let interval;
+
+/**
+* Function to stop stopwatch
+*/ 
+function toStopWatch() {
+	clearInterval(interval);
+}
+
+/**
 * Function to reset "star rating" when game is restarted
 */ 
 function resetRating() {
@@ -174,6 +202,7 @@ function restart() {
 		toRestart.item(i).classList.remove("card-rotate");
 	}
 	resetRating();
+	toStopWatch();
 	initGame();
 }
 
@@ -192,6 +221,7 @@ function initGame() {
 	eraseCards(); //to erase icon classes from cards after restart
 	shuffle(cardsDeck); // to shuffle card-icons
 	dealCards(); // to assign icons to cards
+	toStartWatch(); // to start stopwatch
 }
 
 // Set event listener to 'restart' button
