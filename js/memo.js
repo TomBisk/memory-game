@@ -95,11 +95,29 @@ function storeCard(e) {
 */
 function compareCards(c1, c2) {
 	if (document.querySelector("#" + c1 + " i").className === document.querySelector("#" + c2 + " i").className) {
+		gameStatus(); // to check status of the game
 		eventRemove(c1, c2); //to remove event listeners form matched cards
 	} else {
 		coverCard(c1, c2); //to cover unmatched cards
 	}
 }
+
+/**
+* Function to check if the game is finished
+*/
+function gameStatus() {
+	pairsToGuess--;
+	if (pairsToGuess == 0) {
+		toStopWatch(); //stop the stopwatch
+		setTimeout(function(){ //temporary congrats window
+    	alert("Excellent!"); 
+  		}, 500); //TODO congrats popup!!
+	} else {
+		
+	}
+}
+
+let pairsToGuess; // to set how many pairs of cards left to guess
 
 /**
 * Function to block uncovered and matched cards. 
@@ -153,6 +171,17 @@ function rating() {
 }
 
 /**
+* Function to reset "star rating" when game is restarted
+*/ 
+function resetRating() {
+	const rateItem = document.querySelectorAll("#item-rating i");
+	for (i =0; i < rateItem.length; i++) {
+    rateItem[i].classList.remove("far");
+    rateItem[i].classList.add("fas");
+  }
+}
+
+/**
 * Function of stopwatch
 */
 function stopwatch() {
@@ -164,7 +193,7 @@ const itemTimer = document.getElementById("item-timer"); // to get 'timer' html 
 let gameTime; //time of the game
 
 /**
-* Function to start stopwatch
+* Function to start the stopwatch
 */ 
 function toStartWatch() {
 	gameTime = 0; // to reset time of previous game 
@@ -174,21 +203,10 @@ function toStartWatch() {
 let interval;
 
 /**
-* Function to stop stopwatch
+* Function to stop the stopwatch
 */ 
 function toStopWatch() {
 	clearInterval(interval);
-}
-
-/**
-* Function to reset "star rating" when game is restarted
-*/ 
-function resetRating() {
-	const rateItem = document.querySelectorAll("#item-rating i");
-	for (i =0; i < rateItem.length; i++) {
-    rateItem[i].classList.remove("far");
-    rateItem[i].classList.add("fas");
-  }
 }
 
 /**
@@ -201,9 +219,10 @@ function restart() {
 	for (i = 0; i < toRestart.length; i++) {
 		toRestart.item(i).classList.remove("card-rotate");
 	}
-	resetRating();
-	toStopWatch();
-	initGame();
+	
+	resetRating(); // to reset 'star rating'
+	toStopWatch(); // to stop stopwatch
+	initGame(); // to initialize a new game
 }
 
 /**
@@ -216,8 +235,9 @@ function initGame() {
 	for (i = 0; i < allCards.length; i++) {
 		allCards.item(i).addEventListener("click", uncoverCard);
 		allCards.item(i).addEventListener("click", storeCard);
-	}
-	resetCounter();
+	} 
+	resetCounter(); // to reset counter of moves
+	pairsToGuess = 8; //set initial number of pairs of cards to guess
 	eraseCards(); //to erase icon classes from cards after restart
 	shuffle(cardsDeck); // to shuffle card-icons
 	dealCards(); // to assign icons to cards
