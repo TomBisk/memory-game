@@ -85,6 +85,32 @@ body {
 	margin-top: 30px;
 }
 
+/* Popup styles */
+
+.modal-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6); 
+  z-index: 999; 
+  opacity:0; 
+  pointer-events: none;
+}
+
+.modal-box:target {
+  opacity:1; 
+  pointer-events: auto;
+}
+
+.modal-box > div {
+  width: 400px; 
+  position: relative;
+  margin: 10% auto; 
+  padding: 10px;
+  background: #fff;
+}
 
 @media screen and (min-width: 640px) {
 
