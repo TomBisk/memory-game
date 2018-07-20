@@ -226,13 +226,16 @@ function modalStart() {
 }
 
 /**
-* Function to display result popup when game is finished
+* Function to display result popup when the game is finished
 */ 
 function modalResult() {
 	let href = "#modal-result";
 	window.open(href, "_self");
 }
 
+/**
+* Function to  display popup when the game is restarted
+*/ 
 function modalRestart() {
 	toStopWatch(); // to stop stopwatch
 	let href = "#modal-restart";
