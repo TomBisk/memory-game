@@ -209,6 +209,19 @@ function toStopWatch() {
 	clearInterval(interval);
 }
 
+
+/**
+* Function to display start popup
+*/ 
+
+function modalStart() {
+  let href = "#modal-start";
+  window.open(href, "_self");
+}
+
+
+
+
 /**
 * Function to restart game. Function to cover all cards, 
 * reset all score-tools and initialize the new game.
@@ -219,18 +232,19 @@ function restart() {
 	for (i = 0; i < toRestart.length; i++) {
 		toRestart.item(i).classList.remove("card-rotate");
 	}
-	
+	 
 	resetRating(); // to reset 'star rating'
 	toStopWatch(); // to stop stopwatch
 	initGame(); // to initialize a new game
 }
 
+
 /**
 * Function to initialize game during first run and after reset
 */
 function initGame() {
-// List of all cards 
-	let allCards = document.getElementsByClassName("entire-card");
+	window.open("#close", "_self"); // to close popup
+	let allCards = document.getElementsByClassName("entire-card"); // List of all cards
 // to add event listener for all cards
 	for (i = 0; i < allCards.length; i++) {
 		allCards.item(i).addEventListener("click", uncoverCard);
@@ -247,4 +261,11 @@ function initGame() {
 // Set event listener to 'restart' button
 document.getElementById("restart").addEventListener("click", restart);
 
-initGame(); // Call to initialize the game
+//initGame(); // Call to initialize the game
+
+// Event listener for start button, to call initGame()
+const startButton = document.getElementById("start-game");
+startButton.addEventListener("click", initGame);
+
+
+modalStart(); //Display 'start popup'
