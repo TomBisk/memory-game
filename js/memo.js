@@ -110,6 +110,7 @@ function gameStatus() {
 	if (pairsToGuess == 0) {
 		toStopWatch(); //stop the stopwatch
 		setTimeout(function(){ //display result popup
+		displayResult();
     	modalResult(); 
   		}, 500); 
 	} else {
@@ -215,6 +216,21 @@ let interval;
 function toStopWatch() {
 	clearInterval(interval);
 }
+
+/**
+* TODO Function to display result in popup
+*/ 
+function displayResult() {
+	const resultMoves = document.getElementById("result-moves");
+	resultMoves.innerText = moveCounter + " moves";
+	const resultTime = document.getElementById("result-time");
+	resultTime.innerText = gameTime / 100 + " seconds";
+	const resultRating = document.getElementById("item-rating");
+	console.log(resultRating);
+	const resultStars = document.getElementById("result-stars");
+	resultStars.appendChild(resultRating);
+}
+
 
 
 /**
