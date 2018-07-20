@@ -187,6 +187,13 @@ function resetRating() {
 function stopwatch() {
 	gameTime++;
 	itemTimer.innerText = gameTime /100;
+	//statement to stpo the game when time is too long
+	if (gameTime == 1000) { // set max. time value (100 = 1 [s])
+		toStopWatch();
+		modalToLong();
+	} else {
+		
+	}
 }
 
 const itemTimer = document.getElementById("item-timer"); // to get 'timer' html element
@@ -223,6 +230,15 @@ function modalStart() {
 */ 
 function modalResult() {
   let href = "#modal-result";
+  window.open(href, "_self");
+}
+
+/**
+* Function to stop the game when time reaches the max. setted value
+* Max. time to set: in stopwatch() function
+*/
+function modalToLong() {
+  let href = "#modal-to-long";
   window.open(href, "_self");
 }
 
