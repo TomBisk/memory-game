@@ -109,9 +109,9 @@ function gameStatus() {
 	pairsToGuess--;
 	if (pairsToGuess == 0) {
 		toStopWatch(); //stop the stopwatch
-		setTimeout(function(){ //temporary congrats window
-    	alert("Excellent!"); 
-  		}, 500); //TODO congrats popup!!
+		setTimeout(function(){ //display result popup
+    	modalResult(); 
+  		}, 500); 
 	} else {
 		
 	}
@@ -213,13 +213,18 @@ function toStopWatch() {
 /**
 * Function to display start popup
 */ 
-
 function modalStart() {
   let href = "#modal-start";
   window.open(href, "_self");
 }
 
-
+/**
+* Function to display result popup when game is finished
+*/ 
+function modalResult() {
+  let href = "#modal-result";
+  window.open(href, "_self");
+}
 
 
 /**
@@ -267,5 +272,10 @@ document.getElementById("restart").addEventListener("click", restart);
 const startButton = document.getElementById("start-game");
 startButton.addEventListener("click", initGame);
 
+// Event listeners for each restart button, to call restart()
+const againButton = document.getElementsByClassName("play-again");
+for (i = 0; i < againButton.length; i++) {
+  againButton.item(i).addEventListener("click", restart);
+}
 
 modalStart(); //Display 'start popup'
