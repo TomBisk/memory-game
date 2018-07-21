@@ -1,8 +1,12 @@
 html {
 	height: 100%;
-	font-size: 16px;
+	font-size: 10px;
 	font-family: 'Arial', sans-serif;
 	
+}
+
+strong {
+	font-weight: bold;
 }
 
 body {
@@ -34,7 +38,11 @@ body {
 	margin: 5px auto;
 }
 
-
+/*.container {*/
+/*	display: flex;*/
+/*	justify-content: center;*/
+/*	align-self: center;*/
+/*}*/
 
 
 /* Cards styles */
@@ -43,7 +51,7 @@ body {
 	flex-direction: row;
 	flex-wrap: wrap;
 	max-height: 600px;
-	max-width: 600px;
+	max-width: 520px;
 	margin: auto;
 }
 
@@ -61,7 +69,7 @@ body {
 	position: absolute;
 	height: 120px;
 	width: 120px;
-	font-size: 4rem;
+	font-size: 6.4rem;
 	background-color: #f58787;
 	text-align: center;
 	vertical-align: middle;
@@ -88,42 +96,110 @@ body {
 /* Popup styles */
 
 .modal-box {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.6); 
-  z-index: 999; 
-  opacity:0; 
-  pointer-events: none;
+	display: flex;
+/*	align-items: center;*/
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.6); 
+	z-index: 999; 
+	opacity:0; 
+	pointer-events: none;
 }
 
 .modal-box:target {
-  opacity:1; 
-  pointer-events: auto;
+  	opacity:1; 
+  	pointer-events: auto;
 }
 
-.modal-box > div {
-  width: 400px; 
-  position: relative;
-  margin: 10% auto; 
-  padding: 10px;
-  background: #fff;
+.modal-content {
+  	position: relative;
+	overflow: hidden;
+	margin: 10px auto; 
+	align-self: center;
+	box-sizing: border-box;
+  	min-width: 290px; 
+	min-height: 250px;
+	border: 2px solid #000;
+  	padding: 10vh 5vw;
+	font-size: 3rem;
+	text-align: center;
+  	background: #e0e0e0;
+	
 }
+
+.modal-content h1 {
+	margin-bottom: 3rem;
+}
+
+.modal-content h2 {
+	margin-bottom: 2rem;
+}
+
+.modal-content p {
+	margin-bottom: 0.5rem ;
+	font-size: 2.2rem;
+}
+
+.modal-button {
+/*	position: relative;*/
+	display: inline;
+	margin: 2rem auto 0;
+	border: none;
+	border: 1px solid #000;
+	border-radius: 2px;
+	padding: 7px 15px;
+	font-size: 2.5rem;
+	background-color: #ffa700;
+}
+
+.modal-button:hover {
+	background-color: #2f982f;
+	color: #fff;
+}
+
 
 @media screen and (min-width: 640px) {
-
+	
+	.modal-content {
+		width: 470px;
+		height: 350px;	
+	}
 }
 
 
 @media screen and (min-width: 768px) {
 
+	.modal-content {
+		width: 540px;
+		height: 540px;
+
+	}
+	
+	.modal-content h1 {
+		margin-bottom: 5rem;
+	}
+
+	.modal-content h2 {
+		margin-bottom: 4rem;
+	}
+
+	.modal-content p {
+		margin-bottom: 1rem ;
+		font-size: 2.2rem;
+	}
+	
+	.modal-button {
+		margin-top: 5rem;
+	}
 }
 
 
 @media screen and (min-width: 1024px) {
 	
+
 }
 
 @media screen and (min-width: 1100px) {
