@@ -225,10 +225,12 @@ function displayResult() {
 	resultMoves.innerText = moveCounter + " moves";
 	const resultTime = document.getElementById("result-time");
 	resultTime.innerText = gameTime / 100 + " seconds";
-	const resultRating = document.getElementById("item-rating");
+	const resultRating = document.getElementById("item-rating").innerHTML;
 	console.log(resultRating);
+	const ratingCln = resultRating;
+	console.log(ratingCln);
 	const resultStars = document.getElementById("result-stars");
-	resultStars.appendChild(resultRating);
+	resultStars.innerHTML = ratingCln;
 }
 
 
