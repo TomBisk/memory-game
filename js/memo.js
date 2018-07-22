@@ -30,7 +30,7 @@ function dealCards() {
 	// create array of i elements which represents cards
 	const cardsList = document.querySelectorAll(".entire-card .fas");
 	// add icon-class for each i element
-	for (i = 0; i < cardsList.length; i++) {
+	for (let i = 0; i < cardsList.length; i++) {
 		let addIcon = cardsList[i];
 		addIcon.classList.add(cardsDeck[i]);
 	} 
@@ -43,7 +43,7 @@ function eraseCards() {
 	// create array of i elements which represents cards
 	const cardsList = document.querySelectorAll(".entire-card .fas");
 	// remove icon-class for each i element
-	for (i = 0; i < cardsList.length; i++) {
+	for (let i = 0; i < cardsList.length; i++) {
 		cardsList[i].classList.remove(...cardsDeck);
 	}
 }
@@ -63,9 +63,9 @@ function uncoverCard() {
 */
 function coverCard(c1, c2) {
 	setTimeout(function(){
-    document.getElementById(c1).classList.remove("card-rotate");
-    document.getElementById(c2).classList.remove("card-rotate");
-  }, 500); //delay time depending of transition time of .entire-card
+		document.getElementById(c1).classList.remove("card-rotate");
+		document.getElementById(c2).classList.remove("card-rotate");
+	}, 500); //delay time depending of transition time of .entire-card
 }
 
 /**
@@ -74,15 +74,15 @@ function coverCard(c1, c2) {
 *@param {string} c2 - id of second matched card
 */
 function flash(c1, c2) {
-  setTimeout(function() {
-  document.getElementById(c1).classList.add("flash");
-  document.getElementById(c2).classList.add("flash");
-  }, 450);
-  
-  setTimeout(function() {
-  document.getElementById(c1).classList.remove("flash");
-    document.getElementById(c2).classList.remove("flash");
-}, 160);
+	setTimeout(function() {
+		document.getElementById(c1).classList.add("flash");
+		document.getElementById(c2).classList.add("flash");
+	}, 450);
+
+		setTimeout(function() {
+		document.getElementById(c1).classList.remove("flash");
+		document.getElementById(c2).classList.remove("flash");
+	}, 160);
 }
 
 
@@ -124,20 +124,20 @@ function compareCards(c1, c2) {
 /**
 * Function to check if the game is finished
 */
+let pairsToGuess; // to set how many pairs of cards left to guess
+
 function gameStatus() {
 	pairsToGuess--;
 	if (pairsToGuess == 0) {
 		toStopWatch(); //stop the stopwatch
 		setTimeout(function() { //display result popup
-			displayResult();
-    		modalResult(); 
+			displayResult(); //to put results to the modal
+    		modalResult();  // to show modal with results
   		}, 500); 
 	} else {
 		
 	}
 }
-
-let pairsToGuess; // to set how many pairs of cards left to guess
 
 /**
 * Function to block uncovered and matched cards. 
@@ -146,21 +146,21 @@ let pairsToGuess; // to set how many pairs of cards left to guess
 * @param {string} c2 - Id of second matched card
 */
 function eventRemove(c1, c2) {
-  document.getElementById(c1).removeEventListener("click", uncoverCard);
-  document.getElementById(c1).removeEventListener("click", storeCard);
-  document.getElementById(c2).removeEventListener("click", uncoverCard);
-  document.getElementById(c2).removeEventListener("click", storeCard);
+	document.getElementById(c1).removeEventListener("click", uncoverCard);
+	document.getElementById(c1).removeEventListener("click", storeCard);
+	document.getElementById(c2).removeEventListener("click", uncoverCard);
+	document.getElementById(c2).removeEventListener("click", storeCard);
 }
 
 /**
 * Function to count player's moves 
 */
+let moveCounter; // To store number of moves
+
 function toCountMoves() {
 	moveCounter++;
 	document.getElementById("item-moves").innerHTML = moveCounter;
 }
-
-let moveCounter; // To store number of moves
 
 /**
 * Function to reser counter of moves
@@ -187,7 +187,9 @@ function rating() {
 	} else if (moveCounter == 14) {
 		star3.classList.remove("fas");
 		star3.classList.add("far");
-	} else {}
+	} else {
+		
+	}
 }
 
 /**
@@ -195,19 +197,22 @@ function rating() {
 */ 
 function resetRating() {
 	const rateItem = document.querySelectorAll("#item-rating i");
-	for (i =0; i < rateItem.length; i++) {
-    rateItem[i].classList.remove("far");
-    rateItem[i].classList.add("fas");
-  }
+	for (let i =0; i < rateItem.length; i++) {
+		rateItem[i].classList.remove("far");
+		rateItem[i].classList.add("fas");
+	}
 }
 
 /**
 * Function of stopwatch
 */
+const itemTimer = document.getElementById("item-timer"); // to get 'timer' html element
+let gameTime; //time of the game
+
 function stopwatch() {
 	gameTime++;
 	itemTimer.innerText = gameTime /100;
-	//statement to stpo the game when time is too long
+	//statement to stop the game when time is too long
 	if (gameTime == 9999) { // set max. time value (100 = 1 [s])
 		toStopWatch();
 		modalToLong();
@@ -216,18 +221,16 @@ function stopwatch() {
 	}
 }
 
-const itemTimer = document.getElementById("item-timer"); // to get 'timer' html element
-let gameTime; //time of the game
-
 /**
 * Function to start the stopwatch
 */ 
+let interval;
+
 function toStartWatch() {
 	gameTime = 0; // to reset time of previous game 
 	interval = setInterval(stopwatch, 10); //call stopwatch() every 10 ms
 }
 
-let interval;
 
 /**
 * Function to stop the stopwatch
@@ -237,7 +240,7 @@ function toStopWatch() {
 }
 
 /**
-* TODO Function to display result in popup
+* Function to display result in popup
 */ 
 function displayResult() {
 	const resultMoves = document.getElementById("result-moves");
@@ -251,8 +254,6 @@ function displayResult() {
 	const resultStars = document.getElementById("result-stars");
 	resultStars.innerHTML = ratingCln;
 }
-
-
 
 /**
 * Function to display start popup
@@ -288,7 +289,6 @@ function modalToLong() {
   	window.open(href, "_self");
 }
 
-
 /**
 * Function to restart game. Function to cover all cards, 
 * reset all score-tools and initialize the new game.
@@ -296,14 +296,12 @@ function modalToLong() {
 */
 function restart() {
 	const toRestart = document.getElementsByClassName("entire-card");
-	for (i = 0; i < toRestart.length; i++) {
+	for (let i = 0; i < toRestart.length; i++) {
 		toRestart.item(i).classList.remove("card-rotate");
 	}
-	 
 	resetRating(); // to reset 'star rating'
 	initGame(); // to initialize a new game		   
 }
-
 
 /**
 * Function to initialize game during first run and after reset
@@ -312,13 +310,12 @@ function initGame() {
 	window.open("#close", "_self"); // to close popup
 	let allCards = document.getElementsByClassName("entire-card"); // List of all cards
 	// to add event listener for all cards
-	for (i = 0; i < allCards.length; i++) {
+	for (let i = 0; i < allCards.length; i++) {
 		allCards.item(i).addEventListener("click", uncoverCard);
 		allCards.item(i).addEventListener("click", storeCard);
 	} 
 	resetCounter(); // to reset counter of moves
 	pairsToGuess = 8; //set initial number of pairs of cards to guess
-	
 	setTimeout(function() {
 		eraseCards(); //to erase icon classes from cards after restart
 		shuffle(cardsDeck); // to shuffle card-icons
@@ -330,16 +327,14 @@ function initGame() {
 // Set event listener to 'restart' button
 document.getElementById("restart").addEventListener("click", modalRestart);
 
-//initGame(); // Call to initialize the game
-
 // Event listener for start button, to call initGame()
 const startButton = document.getElementById("start-game");
 startButton.addEventListener("click", initGame);
 
 // Event listeners for each restart button, to call restart()
 const againButton = document.getElementsByClassName("play-again");
-for (i = 0; i < againButton.length; i++) {
-  againButton.item(i).addEventListener("click", restart);
+for (let i = 0; i < againButton.length; i++) {
+	againButton.item(i).addEventListener("click", restart);
 }
 
 modalStart(); //Display 'start popup'

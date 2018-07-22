@@ -1,8 +1,7 @@
 html {
 	height: 100%;
-	font-size: 10px;
 	font-family: 'Arial', sans-serif;
-	
+	font-size: 10px;
 }
 
 strong {
@@ -13,11 +12,11 @@ body {
 	height: 100%;
 }
 
+/* Header, footer  styles */
 header,
 footer {
 	text-align: center;
 	color: #433a88;
-	
 }
 
 header h1 {
@@ -27,8 +26,8 @@ header h1 {
 }
 
 header h2 {
-	padding-bottom: 1rem;
 	margin-bottom: 1rem;
+	padding-bottom: 1rem;
 }
 
 footer h1 {
@@ -39,17 +38,17 @@ footer h1 {
 /* Tools styles */
 .tools {
 	display: flex;
+	margin: 15px auto 25px;
 	width: 344px;
 	height: 36px;
-	margin: 15px auto 25px;
 }
 
 .score-item {
-	height: 16px;
-	width: 66px;
 	margin: 3px;
 	border: 1px solid #000;
   	border-radius: 5px;
+	width: 66px;
+	height: 16px;
 	padding: 6px;
 	background-color: #85a5fd;
 }
@@ -77,10 +76,10 @@ footer h1 {
 .tool-button {
 	display: block;
 	margin: 3px;
-	height: 30px;
-	width: 80px;
 	border: 1px solid #000;
   	border-radius: 5px;
+	width: 80px;
+	height: 30px;
 	font-size: 1.6rem;
 	background-color: #ff4e00; 
 }
@@ -95,30 +94,30 @@ button:hover {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	height: 344px;
-	width: 344px;
 	margin: auto;
+	width: 344px;
+	height: 344px;
 }
 
 .entire-card {
 	position: relative;
-	height: 76px;
-	width: 76px;
+	transform-style: preserve-3d;
+	transition: transform 0.45s;
 	margin: 3px;
 	border: 2px solid #000;
   	border-radius: 5px;
-	transition: transform 0.45s;
-	transform-style: preserve-3d;
+	width: 76px;
+	height: 76px;
 }
 
 .card {
 	position: absolute;
-	height: 76px;
-	width: 76px;
-	font-size: 4.2rem;
-	background-color: #f58787;
-	text-align: center;
 	backface-visibility: hidden;
+	width: 76px;
+	height: 76px;
+	font-size: 4.2rem;
+	text-align: center;
+	background-color: #f58787;
 }
 
 .card-front {
@@ -137,7 +136,6 @@ button:hover {
 	margin-top: 17px;
 }
 
-/*  Flash effect to matched cards */
 .flash {
 	opacity: 1;
 	-webkit-animation: flash 0.15s;
@@ -156,15 +154,15 @@ button:hover {
 
 /* Popup styles */
 .modal-box {
-	display: flex;
 	position: fixed;
+	z-index: 999; 
 	top: 0;
-	right: 0;
 	left: 0;
 	bottom: 0;
-	background: rgba(0,0,0,0.6); 
-	z-index: 999; 
+	right: 0;
+	display: flex;
 	opacity:0; 
+	background: rgba(0,0,0,0.6); 
 	pointer-events: none;
 }
 
@@ -175,12 +173,12 @@ button:hover {
 
 .modal-content {
   	position: relative;
+	align-self: center;
 	overflow: hidden;
 	margin: 10px auto; 
-	align-self: center;
+	border: 2px solid #000;
 	box-sizing: border-box;
   	max-width: 80%; 
-	border: 2px solid #000;
   	padding: 1rem ;
 	text-align: center;
   	background: #e0e0e0;
@@ -219,10 +217,10 @@ button:hover {
 @media screen and (min-device-width: 360px) and (max-device-width: 640px) and (orientation: landscape) {
 	
 	.container {
-		height: 100%;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
+		height: 100%;
 	}
 	
 	.tools {
@@ -236,20 +234,12 @@ button:hover {
 	main {
 		order: 1;
 	}
-	
-	.modal-content {
-/*		width: 440px;*/
-	}
-}
-
-
-@media screen and (min-width: 640px) {
-	
 }
 
 
 @media screen and (min-width: 768px) {
 	
+	/* Header, footer  styles */
 	header h1 {
 		padding: 1.6rem;
 		font-size: 5rem;
@@ -267,17 +257,18 @@ button:hover {
 		font-size: 2rem;
 	}
 	
+	/* Tools styles */
 	.tools {
 		width: 520px;
 		height: 52px;
 	}
 
 	.score-item {
-		height: 20px;
-		width: 96px;
 		margin: 5px;
 		border: 2px solid #000;
 		border-radius: 5px;
+		width: 96px;
+		height: 20px;
 		padding: 10px;
 	}
 	
@@ -293,40 +284,42 @@ button:hover {
 		margin-left: 8px;
 	}
 
-	#item-rating .far, #item-rating .fas { 
+	#item-rating .far, 
+	#item-rating .fas { 
 		color: #ffa500;
 	}
 
 	.tool-button {
 		margin: 5px;
-		height: 44px;
-		width: 118px;
 		border: 2px solid #000;
 		border-radius: 5px;
+		width: 118px;
+		height: 44px;
 		font-size: 2rem;
 		background-color: #ff4e00; 
 	}
 	
+	/* Cards styles */
 	.deck {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		height: 520px;
-		width: 520px;
 		margin: auto;
+		width: 520px;
+		height: 520px;
 	}
 
 	.entire-card {
-		height: 114px;
-		width: 114px;
 		margin: 5px;
 		border: 3px solid #000;
 		border-radius: 5px;
+		width: 114px;
+		height: 114px;
 	}
 
 	.card {
-		height: 114px;
 		width: 114px;
+		height: 114px;
 		font-size: 6.4rem;
 	}
 	
@@ -334,11 +327,9 @@ button:hover {
 		margin-top: 25px;
 	}
 	
+	/* Popup styles */
 	.modal-content {
 		padding: 2rem;
-/*		width: 540px;*/
-/*		height: 540px;*/
-
 	}
 	
 	.modal-content h1 {
@@ -362,12 +353,3 @@ button:hover {
 	}
 }
 
-
-@media screen and (min-width: 1024px) {
-	
-
-}
-
-@media screen and (min-width: 1100px) {
-	
-}
