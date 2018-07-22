@@ -1,7 +1,7 @@
-# Memory Game
+# The Memory Game
 
 ## Udacity Front-End Nanodegree Program project (June 2018)
----
+
 
 ### How to play
 
