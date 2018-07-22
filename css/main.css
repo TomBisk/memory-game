@@ -13,6 +13,29 @@ body {
 	height: 100%;
 }
 
+header,
+footer {
+	text-align: center;
+	color: #433a88;
+	
+}
+
+header h1 {
+	padding: 1rem;
+	font-size: 3.2rem;
+	font-weight: bold;
+}
+
+header h2 {
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+}
+
+footer h1 {
+	padding: 1.5rem;
+	font-size: 1.5rem;
+}
+
 /* Tools styles */
 .tools {
 	display: flex;
@@ -192,6 +215,23 @@ button:hover {
 
 
 @media screen and (min-width: 768px) {
+	
+	header h1 {
+		padding: 1.6rem;
+		font-size: 5rem;
+		font-weight: bold;
+	}
+
+	header h2 {
+		padding-bottom: 1.6rem;
+		margin-bottom: 1.6rem;
+		font-size: 1.6rem;
+	}
+
+	footer h1 {
+		padding: 2.5rem;
+		font-size: 2rem;
+	}
 	
 	.tools {
 		width: 520px;
