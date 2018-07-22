@@ -158,35 +158,39 @@ button:hover {
 	margin: 10px auto; 
 	align-self: center;
 	box-sizing: border-box;
-  	min-width: 290px; 
-	min-height: 250px;
+  	max-width: 80%; 
 	border: 2px solid #000;
-  	padding: 10vh 5vw;
-	font-size: 3rem;
+  	padding: 1rem ;
 	text-align: center;
   	background: #e0e0e0;
 }
 
 .modal-content h1 {
-	margin-bottom: 3rem;
+	margin-bottom: 1.5rem;
+	font-size: 2.5rem;
 }
 
 .modal-content h2 {
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
 }
 
 .modal-content p {
-	margin-bottom: 0.5rem ;
-	font-size: 2.2rem;
+	margin: 0.8rem 0;
+	font-size: 1.8rem;
+}
+
+.modal-content span {
+	font-size: 2rem;
 }
 
 .modal-button {
-	display: inline;
-	margin: 2rem auto 0;
+	display: block;
+	margin: 1rem auto 0;
 	border: 1px solid #000;
 	border-radius: 2px;
 	padding: 7px 15px;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	background-color: #ff4e00;
 }
 
@@ -212,6 +216,9 @@ button:hover {
 		order: 1;
 	}
 	
+	.modal-content {
+/*		width: 440px;*/
+	}
 }
 
 
@@ -305,34 +312,32 @@ button:hover {
 	.deck .fas {
 		margin-top: 25px;
 	}
-
 	
 	.modal-content {
-		width: 470px;
-		height: 350px;	
-	}
-	
-	.modal-content {
-		width: 540px;
-		height: 540px;
+		padding: 2rem;
+/*		width: 540px;*/
+/*		height: 540px;*/
 
 	}
 	
 	.modal-content h1 {
-		margin-bottom: 5rem;
+		margin-bottom: 2rem;
+		font-size: 3rem;
 	}
 
 	.modal-content h2 {
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
+		font-size: 2.5rem;
 	}
 
 	.modal-content p {
 		margin-bottom: 1rem ;
-		font-size: 2.2rem;
+		font-size: 2rem;
 	}
 	
 	.modal-button {
-		margin-top: 5rem;
+		margin: 1.5rem auto 0;
+		font-size: 2.5rem;
 	}
 }
 
