@@ -189,7 +189,7 @@ function stopwatch() {
 	gameTime++;
 	itemTimer.innerText = gameTime /100;
 	//statement to stpo the game when time is too long
-	if (gameTime == 10000) { // set max. time value (100 = 1 [s])
+	if (gameTime == 9999) { // set max. time value (100 = 1 [s])
 		toStopWatch();
 		modalToLong();
 	} else {

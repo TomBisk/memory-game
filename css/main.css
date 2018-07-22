@@ -55,7 +55,7 @@ footer h1 {
 }
 
 .item-label {
-	font-size: 1.6rem;
+	font-size: 1.5rem;
 }
 
 #item-moves {
@@ -68,6 +68,10 @@ footer h1 {
 
 .fa-star { 
   	color: #ffa500;
+}
+
+.fa-stopwatch {
+	margin-right: 2px;
 }
 
 .tool-button {
