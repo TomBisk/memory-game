@@ -159,13 +159,13 @@ function rating() {
 	const star2 = document.getElementById("two-star");
 	const star3 = document.getElementById("three-star");
 	// change stars style depending on number of moves
-	if (moveCounter == 15) {
+	if (moveCounter == 18) {
 		star1.classList.remove("fas");
 		star1.classList.add("far");
-	} else if (moveCounter == 13){
+	} else if (moveCounter == 16){
 		star2.classList.remove("fas");
 		star2.classList.add("far");
-	} else if (moveCounter == 10) {
+	} else if (moveCounter == 14) {
 		star3.classList.remove("fas");
 		star3.classList.add("far");
 	} else {}
