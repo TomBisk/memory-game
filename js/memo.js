@@ -69,6 +69,24 @@ function coverCard(c1, c2) {
 }
 
 /**
+* Function to flash effect when cards matched
+*@param {string} c1 - id of first matched card
+*@param {string} c2 - id of second matched card
+*/
+function flash(c1, c2) {
+  setTimeout(function() {
+  document.getElementById(c1).classList.add("flash");
+  document.getElementById(c2).classList.add("flash");
+  }, 450);
+  
+  setTimeout(function() {
+  document.getElementById(c1).classList.remove("flash");
+    document.getElementById(c2).classList.remove("flash");
+}, 160);
+}
+
+
+/**
 * Function to store uncovered cards
 */
 storeArray = new Array(2); // array to store uncovered cards
@@ -95,6 +113,7 @@ function storeCard(e) {
 */
 function compareCards(c1, c2) {
 	if (document.querySelector("#" + c1 + " i").className === document.querySelector("#" + c2 + " i").className) {
+		flash(c1, c2); // to flash matched cards
 		gameStatus(); // to check status of the game
 		eventRemove(c1, c2); //to remove event listeners form matched cards
 	} else {

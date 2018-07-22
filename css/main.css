@@ -137,6 +137,23 @@ button:hover {
 	margin-top: 17px;
 }
 
+/*  Flash effect to matched cards */
+.flash {
+	opacity: 1;
+	-webkit-animation: flash 0.15s;
+	animation: flash 0.15s;
+}
+
+@-webkit-keyframes flash {
+	0% { opacity: .1;	}
+	100% { opacity: 0.8; }
+}
+
+@keyframes flash {
+	0% { opacity: .1; }
+	100% { opacity: 0.8; }
+}
+
 /* Popup styles */
 .modal-box {
 	display: flex;
