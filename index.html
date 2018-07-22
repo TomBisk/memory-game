@@ -12,221 +12,221 @@
     </head>
     <body>
     	<div class="container">
-    	<header>
-    		<h1>Memory Game</h1>
-    		<h2>Udacity Front-End Nanodegree Program project</h2>
-    	</header>
-<!-- Tools section	-->
-    	<section id="tools" class="tools">
-	<!-- Moves counter 	-->
-			<div id="moves" class="score-item">
-				<span class="item-label"><i class="far fa-hand-paper"></i></span>
-				<span id="item-moves" class="item-label"></span>
+			<header>
+				<h1>Memory Game</h1>
+				<h2>Udacity Front-End Nanodegree Program project</h2>
+			</header>
+	<!-- Tools section	-->
+			<section id="tools" class="tools">
+		<!-- Moves counter 	-->
+				<div id="moves" class="score-item">
+					<span class="item-label"><i class="far fa-hand-paper"></i></span>
+					<span id="item-moves" class="item-label"></span>
+				</div>
+		<!-- Star rating -->
+				<div id="rating" class="score-item">
+	<!--				<span class="item-label">rating:</span>-->
+					<span id="item-rating" class="item-label">
+						<i id="one-star" class="fas fa-star"></i>
+						<i id="two-star" class="fas fa-star"></i>
+						<i id="three-star" class="fas fa-star"></i>
+					</span>
+				</div>
+		<!-- Stopwatch	-->
+				<div id="timer" class="score-item">
+					<span class="item-label"><i class="fas fa-stopwatch"></i></span>
+					<span id="item-timer" class="item-label"></span>
+				</div>
+		<!-- Reset button -->
+					<button id="restart" class="tool-button">restart</button>
+	<!--
+				<div class="score-item">
+				</div>
+	-->
+			</section>
+	<!-- Cards section 	-->
+			<main>
+				<div class="deck">
+		 <!-- cards: first row -->
+					<div id="card-1" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-2" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-3" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-4" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+	<!-- cards: second row -->		
+					<div id="card-5" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-6" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-7" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-8" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+	   <!-- cards: third row -->
+					<div id="card-9" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-10" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-11" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-12" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+	<!-- cards: fourth row -->		
+					<div id="card-13" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-14" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-15" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+					<div id="card-16" class="entire-card">
+						<div class="card card-front">
+							<i class="fas"></i>
+						</div>
+						<div class="card card-back">
+
+						</div>
+					</div>
+				</div>
+			</main>
+
+	<!-- Popup section-->
+		<!-- Start modal 	-->
+			<div id="modal-start" class="modal-box"> 
+				<div class="modal-content">
+					<h1>Welcome to the <strong>Memo Game</strong></h1>
+					<h2>How to play</h2>
+					<p>Match all pairs:</p>
+					<p> - as fast as possible</p>
+					<p> - in as few moves as You can</p>
+					<button id="start-game" class="modal-button">Start game</button>
+				</div>
+			</div>	
+
+		<!-- Result modal  	-->
+			<div id="modal-result" class="modal-box">
+				<div class="modal-content">
+					<h1>You finished the game!</h1>
+					<span id="congrat-text"></span>
+					<span id="result-stars"></span>
+					<p>Your score is:</p>
+					<span id="result-moves"></span> in <span id="result-time"></span>
+					<hr>
+					<button class="modal-button play-again">play again?</button>
+				</div>
 			</div>
-	<!-- Star rating -->
-			<div id="rating" class="score-item">
-<!--				<span class="item-label">rating:</span>-->
-				<span id="item-rating" class="item-label">
-					<i id="one-star" class="fas fa-star"></i>
-					<i id="two-star" class="fas fa-star"></i>
-					<i id="three-star" class="fas fa-star"></i>
-				</span>
+		<!-- Restart modal -->
+			<div id="modal-restart" class="modal-box">
+				<div class="modal-content">
+					<h1>Are You ready?</h1>
+					<button class="modal-button play-again">Start game</button>
+				</div>
 			</div>
-	<!-- Stopwatch	-->
-			<div id="timer" class="score-item">
-				<span class="item-label"><i class="fas fa-stopwatch"></i></span>
-				<span id="item-timer" class="item-label"></span>
+
+		<!-- Too long modal -->
+			<div id="modal-to-long" class="modal-box">
+				<div class="modal-content">
+					<h1>Hey! Wake up!</h1>
+					<button class="modal-button play-again">play again?</button>
+				</div>
 			</div>
-	<!-- Reset button -->
-				<button id="restart" class="tool-button">restart</button>
-<!--
-			<div class="score-item">
-			</div>
--->
-		</section>
-<!-- Cards section 	-->
-    	<main>
-    		<div class="deck">
-	 <!-- cards: first row -->
-    			<div id="card-1" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-2" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-3" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-4" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-<!-- cards: second row -->		
-				<div id="card-5" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-6" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-7" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-8" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-   <!-- cards: third row -->
-    			<div id="card-9" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-10" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-11" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-12" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-<!-- cards: fourth row -->		
-				<div id="card-13" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-14" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-15" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    			<div id="card-16" class="entire-card">
-    				<div class="card card-front">
-    					<i class="fas"></i>
-    				</div>
-    				<div class="card card-back">
-    					
-    				</div>
-    			</div>
-    		</div>
-    	</main>
-    	
-<!-- Popup section-->
-	<!-- Start modal 	-->
-   		<div id="modal-start" class="modal-box"> 
-  			<div class="modal-content">
-    			<h1>Welcome to the <strong>Memo Game</strong></h1>
-				<h2>How to play</h2>
-				<p>Match all pairs:</p>
-    			<p> - as fast as possible</p>
-    			<p> - in as few moves as You can</p>
-    			<button id="start-game" class="modal-button">Start game</button>
-  			</div>
-		</div>	
-   	
-	<!-- Result modal  	-->
-   		<div id="modal-result" class="modal-box">
-			<div class="modal-content">
-				<h1>You finished the game!</h1>
-				<span id="congrat-text"></span>
-				<span id="result-stars"></span>
-				<p>Your score is:</p>
-				<span id="result-moves"></span> in <span id="result-time"></span>
-				<hr>
-				<button class="modal-button play-again">play again?</button>
-			</div>
-		</div>
-	<!-- Restart modal -->
-    	<div id="modal-restart" class="modal-box">
-			<div class="modal-content">
-				<h1>Are You ready?</h1>
-				<button class="modal-button play-again">Start game</button>
-			</div>
-		</div>
-		
-	<!-- Too long modal -->
-    	<div id="modal-to-long" class="modal-box">
-			<div class="modal-content">
-				<h1>Hey! Wake up!</h1>
-				<button class="modal-button play-again">play again?</button>
-			</div>
-		</div>
-    	
-<!-- Footer -->
-    	<footer>
-    		<h1>&copy; 2018 Tomasz Bochenek</h1>
-    	</footer>
+
+	<!-- Footer -->
+			<footer>
+				<h1>&copy; 2018 Tomasz Bochenek</h1>
+			</footer>
     	</div>
     <script src="js/memo.js"></script>
     
