@@ -109,9 +109,9 @@ function gameStatus() {
 	pairsToGuess--;
 	if (pairsToGuess == 0) {
 		toStopWatch(); //stop the stopwatch
-		setTimeout(function(){ //display result popup
-		displayResult();
-    	modalResult(); 
+		setTimeout(function() { //display result popup
+			displayResult();
+    		modalResult(); 
   		}, 500); 
 	} else {
 		
@@ -282,7 +282,7 @@ function restart() {
 	}
 	 
 	resetRating(); // to reset 'star rating'
-	initGame(); // to initialize a new game
+	initGame(); // to initialize a new game		   
 }
 
 
@@ -292,17 +292,20 @@ function restart() {
 function initGame() {
 	window.open("#close", "_self"); // to close popup
 	let allCards = document.getElementsByClassName("entire-card"); // List of all cards
-// to add event listener for all cards
+	// to add event listener for all cards
 	for (i = 0; i < allCards.length; i++) {
 		allCards.item(i).addEventListener("click", uncoverCard);
 		allCards.item(i).addEventListener("click", storeCard);
 	} 
 	resetCounter(); // to reset counter of moves
 	pairsToGuess = 8; //set initial number of pairs of cards to guess
-	eraseCards(); //to erase icon classes from cards after restart
-	shuffle(cardsDeck); // to shuffle card-icons
-	dealCards(); // to assign icons to cards
-	toStartWatch(); // to start stopwatch
+	
+	setTimeout(function() {
+		eraseCards(); //to erase icon classes from cards after restart
+		shuffle(cardsDeck); // to shuffle card-icons
+		dealCards(); // to assign icons to cards
+		toStartWatch(); // to start stopwatch		
+	}, 500);
 }
 
 // Set event listener to 'restart' button
